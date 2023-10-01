@@ -9,7 +9,7 @@ import Footer from "@/components/wrappers/Footer";
 import useGrandsPrix from "@/hooks/useGrandsPrix";
 
 const FiaDocuments = () => {
-  const { grandsPrix, isLoading, error } = useGrandsPrix({
+  const [grandsPrix, isLoading, error] = useGrandsPrix({
     documents: true,
   });
   const [debug, setDebug] = useState(false);
@@ -40,7 +40,7 @@ const FiaDocuments = () => {
         {debug && <JSONTree data={grandsPrix} />}
 
         {grandsPrix?.data
-          .sort((a, b) => parseInt(a.id) - parseInt(b.id))
+          .sort((a, b) => parseInt(a.id ?? "0") - parseInt(b.id ?? "0"))
           .map((grandPrix) => {
             return (
               <DocumentSection key={grandPrix.id} GP={grandPrix.attributes} />

@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import DateFormat from "../DateFormat";
 import DocumentChip from "./DocumentChip";
-import { FluffyAttributes } from "@/types/GrandPrix";
+import { FluffyAttributes } from "@/types/GrandsPrix";
 
 type Props = {
   attributes: FluffyAttributes;

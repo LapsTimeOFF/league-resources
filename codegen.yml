@@ -1,0 +1,5 @@
+schema: https://strapi.f1refugeesleague.tech/graphql
+generates:
+  ./src/types/types.ts:
+    plugins:
+      - typescript

@@ -14,7 +14,7 @@ import Twemoji from "react-twemoji";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ReactMarkdown from "react-markdown";
 import DocumentCard from "./DocumentCard";
-import { PurpleAttributes } from "@/types/GrandPrix";
+import { PurpleAttributes } from "@/types/GrandsPrix";
 
 type Props = {
   GP: PurpleAttributes;

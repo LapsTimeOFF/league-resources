@@ -7,7 +7,6 @@ import {
   Login,
   Logout,
   PrivacyTip,
-  Report,
   Rule,
 } from "@mui/icons-material";
 import { useCookies } from "react-cookie";
@@ -60,11 +59,11 @@ const SideBarDrawer: FC<Props> = ({ open, onClose }) => {
             Streaming Platform
           </DrawerItem>
 
-          <Separator />
+          {/* <Separator /> */}
 
-          <DrawerItem path="/reports/create" icon={<Report />}>
+          {/* <DrawerItem path="/reports/create" icon={<Report />}>
             Create a report
-          </DrawerItem>
+          </DrawerItem> */}
 
           <Separator />
 

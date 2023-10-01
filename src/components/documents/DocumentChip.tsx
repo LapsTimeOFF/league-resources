@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import { Chip, Grid } from "@mui/material";
-import { FiaDocumentType, SessionType } from "@/types/GrandPrix";
+import { Enum_Session_Type, Enum_Fiadocument_Type } from "@/types/types";
 
 type Props = {
-  documentType: FiaDocumentType;
-  sessionType: SessionType | null;
+  documentType: Enum_Fiadocument_Type;
+  sessionType: Enum_Session_Type | null;
 };
 
 const DocumentChip: FC<Props> = ({ documentType, sessionType }) => {
@@ -12,9 +12,9 @@ const DocumentChip: FC<Props> = ({ documentType, sessionType }) => {
     <Grid container spacing={2}>
       {sessionType ? (
         <Grid item>
-          {sessionType === SessionType.Qualifying ? (
+          {sessionType === Enum_Session_Type.Qualifying ? (
             <Chip variant="filled" label="Qualifying" color="secondary" />
-          ) : sessionType === SessionType.Session ? (
+          ) : sessionType === Enum_Session_Type.Session ? (
             <Chip variant="filled" label="Session" color="secondary" />
           ) : (
             <Chip variant="filled" label="Race" color="secondary" />
@@ -22,34 +22,36 @@ const DocumentChip: FC<Props> = ({ documentType, sessionType }) => {
         </Grid>
       ) : null}
       <Grid item>
-        {documentType === FiaDocumentType.Info ? (
+        {documentType === Enum_Fiadocument_Type.Info ? (
           <Chip variant="filled" label="Info" color="info" />
-        ) : documentType === FiaDocumentType.InvestigationPenaltyGridDrop ? (
+        ) : documentType ===
+          Enum_Fiadocument_Type.InvestigationPenaltyGridDrop ? (
           <Chip variant="filled" label="Penalty: Grid Drop" color="error" />
-        ) : documentType === FiaDocumentType.InvestigationPenaltyNFA ? (
+        ) : documentType ===
+          Enum_Fiadocument_Type.InvestigationNoFurtherAction ? (
           <Chip
             variant="filled"
             label="Investigation: No Further Action"
             color="success"
           />
-        ) : documentType === FiaDocumentType.InvestigationPenaltyTime ? (
+        ) : documentType === Enum_Fiadocument_Type.InvestigationPenaltyTime ? (
           <Chip variant="filled" label="Penalty: Time" color="warning" />
         ) : documentType ===
-          FiaDocumentType.InvestigationRightOfReviewPenaltyGridDrop ? (
+          Enum_Fiadocument_Type.InvestigationRightOfReviewPenaltyGridDrop ? (
           <Chip
             variant="filled"
             label="Right of Review - Penalty: Grid Drop"
             color="error"
           />
         ) : documentType ===
-          FiaDocumentType.InvestigationRightOfReviewPenaltyNFA ? (
+          Enum_Fiadocument_Type.InvestigationRightOfReviewPenaltyNoFurtherAction ? (
           <Chip
             variant="filled"
             label="Right of Review - Investigation: No Further Action"
             color="success"
           />
         ) : documentType ===
-          FiaDocumentType.InvestigationRightOfReviewPenaltyTime ? (
+          Enum_Fiadocument_Type.InvestigationRightOfReviewPenaltyTime ? (
           <Chip
             variant="filled"
             label="Right of Review - Penalty: Time"
