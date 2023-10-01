@@ -43,7 +43,7 @@ const FiaDocuments = () => {
           .sort((a, b) => parseInt(a.id ?? "0") - parseInt(b.id ?? "0"))
           .map((grandPrix) => {
             return (
-              <DocumentSection key={grandPrix.id} GP={grandPrix.attributes} />
+              <DocumentSection key={grandPrix.id} GP={grandPrix.attributes!} />
             );
           })}
       </Box>

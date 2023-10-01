@@ -14,10 +14,10 @@ import Twemoji from "react-twemoji";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ReactMarkdown from "react-markdown";
 import DocumentCard from "./DocumentCard";
-import { PurpleAttributes } from "@/types/GrandsPrix";
+import { GrandPrix } from "@/types/types";
 
 type Props = {
-  GP: PurpleAttributes;
+  GP: GrandPrix;
 };
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -74,17 +74,17 @@ const DocumentSection: FC<Props> = ({ GP }) => {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Grid container spacing={2}>
-            {GP.fia_documents.data
+            {GP.fia_documents?.data
               .sort(
                 (a, b) =>
-                  new Date(a.attributes.upload_date).getTime() -
-                  new Date(b.attributes.upload_date).getTime()
+                  new Date(a.attributes?.upload_date).getTime() -
+                  new Date(b.attributes?.upload_date).getTime()
               )
               .map((document) => {
                 return (
                   <DocumentCard
-                    attributes={document.attributes}
-                    key={document.attributes.uid}
+                    attributes={document.attributes!}
+                    key={document.attributes?.uid}
                   />
                 );
               })}

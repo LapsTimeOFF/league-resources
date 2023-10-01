@@ -10,20 +10,20 @@ import {
 import Link from "next/link";
 import DateFormat from "../DateFormat";
 import DocumentChip from "./DocumentChip";
-import { FluffyAttributes } from "@/types/GrandsPrix";
+import { Enum_Session_Type, FiaDocument } from "@/types/types";
 
 type Props = {
-  attributes: FluffyAttributes;
+  attributes: FiaDocument;
 };
 
 const DocumentCard: FC<Props> = ({ attributes }) => {
-  const documents = attributes.document.data;
+  const documents = attributes.document?.data;
 
-  const imageFile = documents.find(
-    (document) => document.attributes.ext === ".png"
+  const imageFile = documents?.find(
+    (document) => document.attributes?.ext === ".png"
   );
-  const pdfFile = documents.find(
-    (document) => document.attributes.ext === ".pdf"
+  const pdfFile = documents?.find(
+    (document) => document.attributes?.ext === ".pdf"
   );
 
   return (
@@ -33,16 +33,16 @@ const DocumentCard: FC<Props> = ({ attributes }) => {
           LinkComponent={Link}
           href={
             (process.env.NEXT_PUBLIC_API_BASEURL ?? "") +
-            (pdfFile?.attributes.url ?? "")
+            (pdfFile?.attributes?.url ?? "")
           }
         >
           {imageFile && (
             <CardMedia
               sx={{ height: 140 }}
               image={
-                process.env.NEXT_PUBLIC_API_BASEURL + imageFile.attributes.url
+                process.env.NEXT_PUBLIC_API_BASEURL! + imageFile.attributes?.url
               }
-              title={imageFile.attributes.name}
+              title={imageFile.attributes?.name}
             />
           )}
           <CardContent>
@@ -51,10 +51,11 @@ const DocumentCard: FC<Props> = ({ attributes }) => {
               <DateFormat date={attributes.upload_date} />
             </Typography>
             <DocumentChip
-              documentType={attributes.type}
+              documentType={attributes.type!}
               sessionType={
-                attributes.session.data
-                  ? attributes.session.data.attributes.type
+                attributes.session?.data
+                  ? (attributes.session.data.attributes
+                      ?.type as Enum_Session_Type)
                   : null
               }
             />
