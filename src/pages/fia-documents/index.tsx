@@ -27,6 +27,7 @@ const FiaDocuments = () => {
       <Box
         sx={{
           p: 4,
+          mb: 5,
         }}
       >
         <Typography variant="h1" align="center">
